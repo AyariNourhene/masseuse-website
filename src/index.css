@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-ivory font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-aubergine;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-full transition-all duration-300 inline-block;
+  }
+  
+  .btn-primary {
+    @apply bg-aubergine text-ivory hover:bg-aubergine/90 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-gold text-aubergine hover:bg-gold/90 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-aubergine text-aubergine hover:bg-aubergine/10;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-serif font-medium mb-8 text-aubergine;
+  }
+  
+  .section-subtitle {
+    @apply text-xl md:text-2xl font-serif text-gold-dark mb-12 max-w-3xl mx-auto;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-md p-6 transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
