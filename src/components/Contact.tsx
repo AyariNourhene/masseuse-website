@@ -27,7 +27,15 @@ const handleSubmit = async (e: React.FormEvent) => {
     await emailjs.send(
       process.env.EMAILJS_SERVICE_ID!,
       process.env.EMAILJS_TEMPLATE_ID!,
-      formData,
+        {
+    name: formData.name,
+    email: formData.email,
+    phone: formData.phone,
+    service: formData.service,
+    date: formData.date,
+    message: formData.message
+    //address: formData.address 
+  },
       process.env.EMAILJS_PUBLIC_KEY!
     );
 
@@ -45,10 +53,13 @@ const handleSubmit = async (e: React.FormEvent) => {
     setTimeout(() => {
       setFormSubmitted(false);
     }, 5000);
+    console.log('SUCCESS!');
+    alert("Message envoyé !");
 
   } catch (error) {
-    console.error("Erreur d'envoi:", error);
-    // Vous pouvez ajouter un message d'erreur à l'utilisateur ici
+   console.error('Erreur EmailJS:', error);
+  alert("Erreur lors de l'envoi !");
+    
   }
 }
      
