@@ -29,25 +29,28 @@ const Header = () => {
     >
       <div className="container-custom flex justify-between items-center">
         <a href="/" className="flex items-center">
-          <h1 className="text-2xl font-serif font-medium text-aubergine">
-            Harmonie<span className="text-gold-dark">Massage</span>
-          </h1>
+          <img 
+            src="src/image/logo_nermine.png" 
+            alt="Nermine Logo" 
+            className={`h-16 transition-transform duration-300 `}
+          />
+          
         </a>
 
         <div className="hidden md:flex items-center gap-4">
           <div className="flex items-center text-sm px-4">
-            <MapPin size={16} className="mr-2 text-aubergine" />
+            <MapPin size={16} className="mr-2 text-rose" />
             <span>Service à domicile</span>
           </div>
         </div>
         
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
-            {['Accueil', 'Services', 'À propos', 'Contact', 'FAQ'].map((item) => (
+            {['Accueil', 'Services', 'A propos', 'Contact', 'FAQ'].map((item) => (
               <li key={item}>
                 <a 
                   href={`#${item.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, '-')}`}
-                  className={`transition-all duration-300 hover:text-aubergine relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-gold after:transition-all after:duration-300 ${
+                  className={`transition-all duration-300 hover:text-miel-dark relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-miel after:transition-all after:duration-300 ${
                     isScrolled ? 'text-taupe-dark' : 'text-taupe-dark'
                   }`}
                 >

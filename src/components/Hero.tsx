@@ -6,11 +6,11 @@ const Hero = () => {
   return (
     <section id="accueil" className="relative min-h-screen flex items-center pt-20">
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-lavender/30 to-ivory/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-rose/30 to-ivoire/50"></div>
         <img 
           src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1920" 
           alt="Massage therapy background" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover absolute inset-0 opacity-50"
         />
       </div>
       
@@ -21,7 +21,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium mb-6 text-aubergine">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-rose">
               Retrouvez bien-être et sérénité avec un massage à domicile
             </h1>
           </motion.div>

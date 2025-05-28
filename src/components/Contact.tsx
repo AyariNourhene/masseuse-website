@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Phone, MapPin, Clock, Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,7 +10,6 @@ const Contact = () => {
     phone: '',
     service: '',
     date: '',
-    time: '',
     message: ''
   });
   
@@ -20,36 +20,38 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  
+  try {
+    await emailjs.send(
+      process.env.EMAILJS_SERVICE_ID!,
+      process.env.EMAILJS_TEMPLATE_ID!,
+      formData,
+      process.env.EMAILJS_PUBLIC_KEY!
+    );
 
-      if (response.ok) {
-        setFormSubmitted(true);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          service: '',
-          date: '',
-          time: '',
-          message: ''
-        });
-        setTimeout(() => {
-          setFormSubmitted(false);
-        }, 5000);
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    }
-  };
+    // Affiche le message de confirmation et réinitialise le formulaire
+    setFormSubmitted(true);
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      service: '',
+      date: '',
+      message: ''
+    });
+
+    setTimeout(() => {
+      setFormSubmitted(false);
+    }, 5000);
+
+  } catch (error) {
+    console.error("Erreur d'envoi:", error);
+    // Vous pouvez ajouter un message d'erreur à l'utilisateur ici
+  }
+}
+     
 
   const contactInfo = [
     { 
@@ -61,7 +63,7 @@ const Contact = () => {
     { 
       icon: MapPin, 
       title: "Zone de service", 
-      details: "Paris et proche banlieue (rayon de 20km)",
+      details: "TUNIS et proche banlieue (rayon de 20km)",
       action: "#"
     },
     { 
@@ -110,8 +112,8 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="bg-lavender/20 rounded-2xl p-8">
-              <h3 className="text-2xl font-serif font-medium mb-6 text-aubergine">Informations de contact</h3>
+            <div className="bg-lavande/20 rounded-2xl p-8">
+              <h3 className="text-2xl font-serif font-medium mb-6 text-rose-dark">Informations de contact</h3>
               
               <div className="space-y-6">
                 {contactInfo.map((item, index) => (
@@ -124,13 +126,13 @@ const Contact = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 mr-4">
-                      <item.icon size={18} className="text-aubergine" />
+                      <item.icon size={18} className="text-rose" />
                     </div>
                     <div>
-                      <h4 className="font-medium text-aubergine">{item.title}</h4>
+                      <h4 className="font-medium text-rose">{item.title}</h4>
                       <a 
                         href={item.action} 
-                        className="text-taupe-dark hover:text-aubergine transition-colors"
+                        className="text-taupe-dark hover:text-rose transition-colors"
                       >
                         {item.details}
                       </a>
@@ -139,8 +141,8 @@ const Contact = () => {
                 ))}
               </div>
               
-              <div className="mt-10 p-6 bg-white rounded-xl shadow-soft">
-                <h4 className="text-lg font-medium text-aubergine mb-4">Besoin d'une information ?</h4>
+              <div className="mt-10 p-6 bg-lavande/30 rounded-xl shadow-soft">
+                <h4 className="text-lg font-bold text-rose-dark mb-4">Besoin d'une information ?</h4>
                 <p className="text-taupe-dark mb-4">
                   N'hésitez pas à me contacter pour toute question concernant mes services de massage à domicile.
                 </p>
@@ -163,19 +165,19 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="bg-white rounded-2xl shadow-soft p-8">
-              <h3 className="text-2xl font-serif font-medium mb-6 text-aubergine">Demande de rendez-vous</h3>
+              <h3 className="text-2xl font-serif font-medium mb-6 text-rose-dark">Demande de rendez-vous</h3>
               
               {formSubmitted ? (
                 <motion.div 
-                  className="bg-lavender/30 rounded-xl p-6 text-center"
+                  className="bg-lavande/30 rounded-xl p-6 text-center"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <div className="w-16 h-16 bg-aubergine rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-rose rounded-full flex items-center justify-center mx-auto mb-4">
                     <Send size={24} className="text-white" />
                   </div>
-                  <h4 className="text-xl font-medium text-aubergine mb-2">Demande envoyée !</h4>
+                  <h4 className="text-xl font-medium text-miel-dark mb-2">Demande envoyée !</h4>
                   <p className="text-taupe-dark">
                     Merci pour votre demande. Je vous contacterai rapidement pour confirmer votre rendez-vous.
                   </p>
@@ -193,7 +195,7 @@ const Contact = () => {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-lavender-light focus:outline-none focus:ring-2 focus:ring-aubergine/50 transition-all"
+                        className="w-full px-4 py-3 rounded-lg border border-lavande-light focus:outline-none focus:ring-2 focus:ring-rose/50 transition-all"
                         placeholder="Votre nom"
                         required
                       />
@@ -208,7 +210,7 @@ const Contact = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-lavender-light focus:outline-none focus:ring-2 focus:ring-aubergine/50 transition-all"
+                        className="w-full px-4 py-3 rounded-lg border border-lavande-light focus:outline-none focus:ring-2 focus:ring-rose/50 transition-all"
                         placeholder="votre@email.com"
                         required
                       />
@@ -226,7 +228,7 @@ const Contact = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-lavender-light focus:outline-none focus:ring-2 focus:ring-aubergine/50 transition-all"
+                        className="w-full px-4 py-3 rounded-lg border border-lavande-light focus:outline-none focus:ring-2 focus:ring-rose/50 transition-all"
                         placeholder="Votre numéro"
                         required
                       />
@@ -240,7 +242,7 @@ const Contact = () => {
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-lavender-light focus:outline-none focus:ring-2 focus:ring-aubergine/50 transition-all appearance-none bg-no-repeat bg-right"
+                        className="w-full px-4 py-3 rounded-lg border border-lavande-light focus:outline-none focus:ring-2 focus:ring-rose/50 transition-all appearance-none bg-no-repeat bg-right"
                         style={{ 
                           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23826A8C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
                           backgroundPosition: 'right 1rem center'
@@ -266,24 +268,11 @@ const Contact = () => {
                         name="date"
                         value={formData.date}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-lavender-light focus:outline-none focus:ring-2 focus:ring-aubergine/50 transition-all"
+                        className="w-full px-4 py-3 rounded-lg border border-lavande-light focus:outline-none focus:ring-2 focus:ring-rose/50 transition-all"
                         required
                       />
                     </div>
-                    <div>
-                      <label htmlFor="time" className="block text-sm font-medium text-taupe-dark mb-2">
-                        Heure préférée
-                      </label>
-                      <input
-                        type="time"
-                        id="time"
-                        name="time"
-                        value={formData.time}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-lavender-light focus:outline-none focus:ring-2 focus:ring-aubergine/50 transition-all"
-                        required
-                      />
-                    </div>
+                
                   </div>
                   
                   <div>
@@ -296,7 +285,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       rows={4}
-                      className="w-full px-4 py-3 rounded-lg border border-lavender-light focus:outline-none focus:ring-2 focus:ring-aubergine/50 transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-lavande-light focus:outline-none focus:ring-2 focus:ring-rose/50 transition-all"
                       placeholder="Indiquez ici toute information complémentaire (adresse, besoins particuliers...)"
                     ></textarea>
                   </div>

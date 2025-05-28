@@ -8,61 +8,68 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply bg-ivory font-sans;
+    @apply bg-ivoire font-sans;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif text-aubergine;
+    @apply font-serif text-rose;
   }
-  
+
   p {
-    @apply leading-relaxed;
+    @apply leading-relaxed text-taupe;
   }
 }
 
 @layer components {
-  .btn {
-    @apply px-6 py-3 rounded-full transition-all duration-300 inline-block;
-  }
-  
-  .btn-primary {
-    @apply bg-aubergine text-ivory hover:bg-aubergine/90 shadow-md hover:shadow-lg;
-  }
-  
-  .btn-secondary {
-    @apply bg-gold text-aubergine hover:bg-gold/90 shadow-md hover:shadow-lg;
-  }
-  
-  .btn-outline {
-    @apply border-2 border-aubergine text-aubergine hover:bg-aubergine/10;
-  }
-  
+.btn {
+  @apply px-8 py-3.5 rounded-full transition-all duration-300 inline-block 
+         font-medium tracking-wide text-center;
+}
+
+.btn-primary {
+  @apply bg-rose text-ivoire hover:bg-rose-dark 
+         shadow-lg hover:shadow-xl hover:-translate-y-0.5
+         focus:ring-4 focus:ring-rose/40;
+}
+
+.btn-secondary {
+  @apply bg-miel text-taupe hover:bg-miel-dark 
+         shadow-md hover:shadow-lg hover:bg-gradient-to-br from-miel to-miel-dark
+         focus:ring-4 focus:ring-miel/40;
+}
+
+.btn-outline {
+  @apply border-2 border-lavande text-lavande-dark hover:bg-lavande/10 
+         hover:border-lavande-dark hover:text-lavande-dark
+         focus:ring-4 focus:ring-lavande/30;
+}
+
   .section-padding {
     @apply py-16 md:py-24;
   }
-  
+
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-serif font-medium mb-8 text-aubergine;
+    @apply text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-8 text-rose;
   }
-  
+
   .section-subtitle {
-    @apply text-xl md:text-2xl font-serif text-gold-dark mb-12 max-w-3xl mx-auto;
+    @apply text-xl md:text-2xl font-serif text-miel-dark mb-12 max-w-3xl mx-auto;
   }
-  
+
   .card {
-    @apply bg-white rounded-2xl shadow-md p-6 transition-all duration-300 hover:shadow-lg;
+    @apply bg-ivoire rounded-2xl shadow-md p-6 transition-all duration-300 hover:shadow-lg;
   }
-  
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-  
+
   @keyframes float {
     0% {
       transform: translateY(0px);

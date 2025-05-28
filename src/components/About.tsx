@@ -22,7 +22,7 @@ const About = () => {
   ];
 
   return (
-    <section id="à-propos" className="section-padding">
+    <section id="a-propos" className="section-padding">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -32,8 +32,8 @@ const About = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="relative">
-              <div className="absolute -top-8 -left-8 w-64 h-64 bg-lavender rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-              <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-gold-light rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+              <div className="absolute -top-8 -left-8 w-64 h-64 bg-lavande rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+              <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-miel-light rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
               
               <div className="relative rounded-2xl overflow-hidden shadow-soft-lg">
                 <img 
@@ -44,7 +44,7 @@ const About = () => {
               </div>
               
               <div className="absolute bottom-8 right-8 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-soft">
-                <p className="text-aubergine font-medium">Sophie Laurent</p>
+                <p className="text-rose font-medium">Sophie Laurent</p>
                 <p className="text-sm text-taupe-dark">Massothérapeute certifiée</p>
               </div>
             </div>
@@ -74,11 +74,11 @@ const About = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                 >
-                  <div className="w-12 h-12 bg-lavender/30 rounded-full flex items-center justify-center shrink-0 mr-4">
-                    <item.icon size={20} className="text-aubergine" />
+                  <div className="w-12 h-12 bg-miel-light/30 rounded-full flex items-center justify-center shrink-0 mr-4">
+                    <item.icon size={20} className="text-taupe-light" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-aubergine mb-1">{item.title}</h3>
+                    <h3 className="text-lg font-medium text-rose mb-1">{item.title}</h3>
                     <p className="text-taupe-dark">{item.description}</p>
                   </div>
                 </motion.div>

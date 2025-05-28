@@ -37,7 +37,7 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="section-padding bg-ivory-dark">
+    <section id="faq" className="section-padding bg-taupe-light/10">
       <div className="container-custom">
         <div className="text-center mb-16">
           <motion.h2 
@@ -79,11 +79,11 @@ const FAQ = () => {
                 onClick={() => toggleAccordion(index)}
                 aria-expanded={activeIndex === index}
               >
-                <h3 className="text-lg font-medium text-aubergine pr-8">{item.question}</h3>
+                <h3 className="text-lg font-medium text-rose-dark pr-8">{item.question}</h3>
                 {activeIndex === index ? (
-                  <ChevronUp size={20} className="text-aubergine shrink-0" />
+                  <ChevronUp size={20} className="text-rose-dark shrink-0" />
                 ) : (
-                  <ChevronDown size={20} className="text-aubergine shrink-0" />
+                  <ChevronDown size={20} className="text-rose-dark shrink-0" />
                 )}
               </button>
               

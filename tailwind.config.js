@@ -4,31 +4,36 @@ export default {
   theme: {
     extend: {
       colors: {
-        lavender: {
-          light: '#E6E0F0',
-          DEFAULT: '#D8CFE8',
-          dark: '#C0B4D8',
-        },
-        gold: {
-          light: '#F0D8BF',
-          DEFAULT: '#E7C4A2',
-          dark: '#D4AA7D',
-        },
-        ivory: {
-          light: '#FFFDF9',
-          DEFAULT: '#FDF9F3',
-          dark: '#F5EDE3',
-        },
-        taupe: {
-          light: '#C7C0BA',
-          DEFAULT: '#B4AAA1',
-          dark: '#9A8F86',
-        },
-        aubergine: {
-          light: '#9A84A3',
-          DEFAULT: '#826A8C',
-          dark: '#6A5574',
-        },
+  rose: {
+    light: '#E9B9BF',
+    DEFAULT: '#D95F76',  // 🌸 Rose pétillant (principal)
+    dark: '#AF7E96',
+  },
+  sauge: {
+    light: '#E0F0E0',
+    DEFAULT: '#9DC183',  // 🌿 Vert sauge vibrante (accent naturel)
+    dark: '#6B8C5D',
+  },
+  miel: {
+    light: '#FFEDC1',
+    DEFAULT: '#FFD166',  // 🌞 Doré vif / Miel éclatant
+    dark: '#E6B649',
+  },
+  ivoire: {
+    light: '#FFFEFC',
+    DEFAULT: '#FFF8ED',  // 🕊️ Ivoire lumineux (fond)
+    dark: '#F5EBD8',
+  },
+  taupe: {
+    light: '#8C7B75',
+    DEFAULT: '#6D5D56',  // ✏️ Gris brun chaleureux (texte)
+    dark: '#4A3D38',
+  },
+  lavande: {
+    light: '#EEE5FF',
+    DEFAULT: '#C9B1FF',  // 💜 Nouvelle touche vibrante
+    dark: '#A78BDF'
+  }
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],

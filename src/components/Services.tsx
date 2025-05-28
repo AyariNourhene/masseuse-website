@@ -6,8 +6,7 @@ const serviceData = [
   {
     title: "Massage Suédois",
     description: "Un massage énergique qui dénoue les tensions musculaires et améliore la circulation sanguine. Idéal après une activité sportive ou pour soulager les douleurs chroniques.",
-    duration: "60 / 90 min",
-    price: "75€ / 95€",
+    duration: "60 / 90 min",  
     icon: Activity,
     benefits: ["Réduit les tensions musculaires", "Améliore la circulation", "Soulage les douleurs", "Améliore la posture"]
   },
@@ -15,7 +14,6 @@ const serviceData = [
     title: "Massage Californien",
     description: "Un massage doux et enveloppant qui procure une profonde relaxation. Parfait pour évacuer le stress et retrouver un bien-être général.",
     duration: "60 / 90 min",
-    price: "70€ / 90€",
     icon: Heart,
     benefits: ["Relaxation profonde", "Réduction du stress", "Amélioration du sommeil", "Bien-être général"]
   },
@@ -23,7 +21,6 @@ const serviceData = [
     title: "Massage aux Pierres Chaudes",
     description: "L'alliance du massage manuel et de la chaleur des pierres volcaniques pour une expérience unique. La chaleur pénètre en profondeur pour détendre corps et esprit.",
     duration: "75 min",
-    price: "85€",
     icon: Clock,
     benefits: ["Détente musculaire", "Relaxation profonde", "Effet thérapeutique", "Équilibre énergétique"]
   }
@@ -87,28 +84,28 @@ const Services = () => {
               className="bg-white rounded-2xl shadow-soft overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-soft-lg"
             >
               <div className="p-8">
-                <div className="w-14 h-14 bg-lavender/30 rounded-full flex items-center justify-center mb-6">
-                  <service.icon size={24} className="text-aubergine" />
+                <div className="w-14 h-14 bg-rose/30 rounded-full flex items-center justify-center mb-6">
+                  <service.icon size={24} className="text-taupe-dark" />
                 </div>
                 <h3 className="text-2xl font-serif font-medium mb-4">{service.title}</h3>
                 <p className="text-taupe-dark mb-6">{service.description}</p>
                 
-                <div className="border-t border-lavender-light pt-4 mt-6">
+                <div className="border-t border-rose-light pt-4 mt-6">
                   <div className="flex justify-between items-center mb-4">
                     <div className="flex items-center">
                       <Clock size={18} className="text-gold-dark mr-2" />
                       <span className="text-sm">{service.duration}</span>
                     </div>
-                    <span className="text-xl font-medium text-aubergine">{service.price}</span>
+                    
                   </div>
                 </div>
                 
                 <div className="mt-6">
-                  <h4 className="text-sm font-medium text-aubergine mb-3">Bienfaits:</h4>
+                  <h4 className="text-sm font-medium text-sauge-dark mb-3">Bienfaits:</h4>
                   <ul className="grid grid-cols-2 gap-2">
                     {service.benefits.map((benefit, i) => (
                       <li key={i} className="flex items-start text-sm">
-                        <svg className="w-4 h-4 text-gold-dark mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 text-miel-dark mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                         {benefit}
@@ -118,10 +115,10 @@ const Services = () => {
                 </div>
               </div>
               
-              <div className="bg-ivory-dark p-4 text-center">
+              <div className="bg-ivoire-dark p-4 text-center">
                 <a 
                   href="#contact" 
-                  className="inline-block text-aubergine font-medium hover:text-gold-dark transition-colors"
+                  className="inline-block text-rose-dark font-medium hover:text-miel-dark transition-colors"
                 >
                   Réserver ce massage
                 </a>
