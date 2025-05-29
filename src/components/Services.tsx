@@ -101,7 +101,7 @@ const Services = () => {
                 </div>
                 
                 <div className="mt-6">
-                  <h4 className="text-sm font-medium text-sauge-dark mb-3">Bienfaits:</h4>
+                  <h4 className="text-sm font-bold text-sauge-dark mb-3">Bienfaits:</h4>
                   <ul className="grid grid-cols-2 gap-2">
                     {service.benefits.map((benefit, i) => (
                       <li key={i} className="flex items-start text-sm">

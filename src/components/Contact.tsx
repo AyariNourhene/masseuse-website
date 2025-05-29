@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Phone, MapPin, Clock, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,10 +11,22 @@ const Contact = () => {
     phone: '',
     service: '',
     date: '',
+    adresse: '',
     message: ''
   });
-  
+
   const [formSubmitted, setFormSubmitted] = useState(false);
+  
+  useEffect(() => {
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+  if (publicKey) {
+    emailjs.init(publicKey);
+  } else {
+    console.error("EMAILJS_PUBLIC_KEY is not defined");
+  }
+}, []);
+  
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -25,18 +38,19 @@ const handleSubmit = async (e: React.FormEvent) => {
   
   try {
     await emailjs.send(
-      process.env.EMAILJS_SERVICE_ID!,
-      process.env.EMAILJS_TEMPLATE_ID!,
+      import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
         {
     name: formData.name,
     email: formData.email,
     phone: formData.phone,
     service: formData.service,
     date: formData.date,
+    adresse: formData.adresse,
     message: formData.message
-    //address: formData.address 
+     
   },
-      process.env.EMAILJS_PUBLIC_KEY!
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
     );
 
     // Affiche le message de confirmation et réinitialise le formulaire
@@ -47,6 +61,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       phone: '',
       service: '',
       date: '',
+      adresse: '',
       message: ''
     });
 
@@ -176,7 +191,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             transition={{ duration: 0.8 }}
           >
             <div className="bg-white rounded-2xl shadow-soft p-8">
-              <h3 className="text-2xl font-serif font-medium mb-6 text-rose-dark">Demande de rendez-vous</h3>
+              <h3 className="text-3xl font-serif font-bold mb-6 text-rose-dark text-center">Demande de rendez-vous</h3>
               
               {formSubmitted ? (
                 <motion.div 
@@ -244,6 +259,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                         required
                       />
                     </div>
+                   
                     <div>
                       <label htmlFor="service" className="block text-sm font-medium text-taupe-dark mb-2">
                         Type de massage
@@ -267,7 +283,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                       </select>
                     </div>
                   </div>
-                  
+                    
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="date" className="block text-sm font-medium text-taupe-dark mb-2">
@@ -283,7 +299,21 @@ const handleSubmit = async (e: React.FormEvent) => {
                         required
                       />
                     </div>
-                
+                          <div>
+                      <label htmlFor="adresse" className="block text-sm font-medium text-taupe-dark mb-2">
+                        Adresse
+                      </label>
+                      <input
+                        type="text"
+                        id="adresse"
+                        name="adresse"
+                        value={formData.adresse}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-lg border border-lavande-light focus:outline-none focus:ring-2 focus:ring-rose/50 transition-all"
+                        placeholder="Votre adresse"
+                        required
+                      />
+                    </div>
                   </div>
                   
                   <div>
