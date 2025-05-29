@@ -30,12 +30,69 @@ const Contact = () => {
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+  if (name === "phone") {
+  // Supprime tout caractère non numérique
+  const digitsOnly = value.replace(/\D/g, "");
+  
+  // Vérifie que le premier chiffre est valide et limite à 8 chiffres
+  let validPhone = digitsOnly;
+  if (digitsOnly.length > 0) {
+    const firstDigit = digitsOnly[0];
+    const validFirstDigits = ['2', '3', '4', '5', '7', '9'];
+    
+    if (!validFirstDigits.includes(firstDigit)) {
+      // Si le premier chiffre n'est pas valide, on ne garde rien
+      validPhone = "";
+    } else if (digitsOnly.length > 8) {
+      // Limite à 8 chiffres maximum
+      validPhone = digitsOnly.substring(0, 8);
+    }
+  }
+  
+  setFormData({ ...formData, [name]: validPhone });
+} else {
+  setFormData({ ...formData, [name]: value });
+}
+if (name === "date") {
+    if (isSunday(value)) {
+      alert("Les réservations ne sont pas possibles le dimanche");
+      return;
+    }
+    
+    const selectedDate = new Date(value);
+    const minDate = new Date(getMinDate());
+    const maxDate = new Date(getMaxDate());
+    
+    if (selectedDate < minDate || selectedDate > maxDate) {
+      alert(`Veuillez choisir une date entre ${minDate.toLocaleDateString()} et ${maxDate.toLocaleDateString()}`);
+      return;
+    }
+  }
+
+  setFormData({ ...formData, [name]: value });
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
+   if (!/^[234579]\d{7}$/.test(formData.phone)) {
+    alert("Le numéro de téléphone n'est pas valide");
+    return;
+  }
+   
+   if (isSunday(formData.date)) {
+    alert("Les réservations ne sont pas possibles le dimanche");
+    return;
+  }
   
+  const selectedDate = new Date(formData.date);
+  const minDate = new Date(getMinDate());
+  const maxDate = new Date(getMaxDate());
+  
+  if (selectedDate < minDate || selectedDate > maxDate) {
+    alert(`Veuillez choisir une date entre ${minDate.toLocaleDateString()} et ${maxDate.toLocaleDateString()}`);
+    return;
+  }
   try {
     await emailjs.send(
       import.meta.env.VITE_EMAILJS_SERVICE_ID!,
@@ -77,14 +134,32 @@ const handleSubmit = async (e: React.FormEvent) => {
     
   }
 }
-     
+ // Fonction pour obtenir la date minimum (2 jours après aujourd'hui)
+const getMinDate = () => {
+  const date = new Date();
+  date.setDate(date.getDate() + 2);
+  return date.toISOString().split('T')[0];
+};
+
+// Fonction pour obtenir la date maximum (1 mois après aujourd'hui)
+const getMaxDate = () => {
+  const date = new Date();
+  date.setMonth(date.getMonth() + 1);
+  return date.toISOString().split('T')[0];
+};
+
+// Fonction pour vérifier si c'est un dimanche
+const isSunday = (dateString : string) => {
+  const date = new Date(dateString);
+  return date.getDay() === 0; // 0 = dimanche
+};    
 
   const contactInfo = [
     { 
       icon: Phone, 
       title: "Téléphone", 
-      details: "+33 7 12 34 56 78",
-      action: "tel:+33712345678"
+      details: "+216 58 853 740",
+      action: "tel:+21658853740"
     },
     { 
       icon: MapPin, 
@@ -173,7 +248,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   N'hésitez pas à me contacter pour toute question concernant mes services de massage à domicile.
                 </p>
                 <a 
-                  href="tel:+33712345678" 
+                  href="tel:+21658853740" 
                   className="btn btn-outline w-full flex items-center justify-center"
                 >
                   <Phone size={18} className="mr-2" />
@@ -256,6 +331,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg border border-lavande-light focus:outline-none focus:ring-2 focus:ring-rose/50 transition-all"
                         placeholder="Votre numéro"
+                        pattern="[234579][0-9]{7}"
                         required
                       />
                     </div>
@@ -295,9 +371,12 @@ const handleSubmit = async (e: React.FormEvent) => {
                         name="date"
                         value={formData.date}
                         onChange={handleChange}
+                         min={getMinDate()}
+                        max={getMaxDate()}
                         className="w-full px-4 py-3 rounded-lg border border-lavande-light focus:outline-none focus:ring-2 focus:ring-rose/50 transition-all"
                         required
                       />
+                      *les jours féries ne sont pas disponibles
                     </div>
                           <div>
                       <label htmlFor="adresse" className="block text-sm font-medium text-taupe-dark mb-2">

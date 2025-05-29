@@ -29,11 +29,15 @@
 }
 
 .btn-primary {
-  @apply bg-rose text-ivoire hover:bg-rose-dark 
+  @apply bg-rose text-ivoire hover:bg-rose-light
          shadow-lg hover:shadow-xl hover:-translate-y-0.5
          focus:ring-4 focus:ring-rose/40;
 }
-
+.btn-service {
+  @apply bg-ivoire text-taupe hover:bg-ivoire-dark 
+         shadow-md hover:shadow-lg hover:bg-gradient-to-br from-ivoire to-ivoire-dark
+         focus:ring-4 focus:ring-ivoire/40;
+}
 .btn-secondary {
   @apply bg-miel text-taupe hover:bg-miel-dark 
          shadow-md hover:shadow-lg hover:bg-gradient-to-br from-miel to-miel-dark

@@ -50,7 +50,7 @@ const Header = () => {
               <li key={item}>
                 <a 
                   href={`#${item.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, '-')}`}
-                  className={`transition-all duration-300 hover:text-miel-dark relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-miel after:transition-all after:duration-300 ${
+                  className={`transition-all duration-300 hover:text-lavande-dark relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-lavande after:transition-all after:duration-300 ${
                     isScrolled ? 'text-taupe-dark' : 'text-taupe-dark'
                   }`}
                 >

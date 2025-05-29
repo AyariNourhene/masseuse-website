@@ -46,7 +46,7 @@ const Hero = () => {
               Prendre rendez-vous
               <ArrowRight size={18} className="ml-2" />
             </a>
-            <a href="#services" className="btn btn-outline flex items-center justify-center">
+            <a href="#services" className="btn btn-service flex items-center justify-center">
               Découvrir les services
             </a>
           </motion.div>

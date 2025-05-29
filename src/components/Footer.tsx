@@ -5,14 +5,16 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-rose-light text-ivoire pt-16 pb-8">
+    <footer className="bg-rose-light/50 text-ivoire pt-16 pb-8">
       <div className="container-custom">
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div>
-            <h3 className="text-2xl font-serif font-medium mb-6 text-miel-dark">
-              Nermine
-            </h3>
-            <p className="mb-6 text-ivoire/80">
+               <img 
+            src="src/image/logo_nermine.png" 
+            alt="Nermine Logo" 
+            className={`h-16 transition-transform duration-300 `}
+          />
+            <p className="mb-6 text-taupe-light/80">
               Services professionnels de massage à domicile, pour votre bien-être et votre confort.
             </p>
             <div className="flex space-x-4">
@@ -40,7 +42,7 @@ const Footer = () => {
                 <li key={item}>
                   <a 
                     href="#services" 
-                    className="text-ivoire/80 hover:text-taupe-dark transition-colors"
+                    className="text-taupe/80 hover:text-taupe-dark transition-colors"
                   >
                     {item}
                   </a>
@@ -54,14 +56,14 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Phone size={18} className="mr-3 mt-1 text-miel-dark" />
-                <a href="tel:+33712345678" className="text-ivoire/80 hover:text-taupe-dark transition-colors">
-                  +33 7 12 34 56 78
+                <a href="tel:+33712345678" className="text-taupe/80 hover:text-taupe-dark transition-colors">
+                  +216 58 853 740
                 </a>
               </li>
               <li className="flex items-start">
                 <Mail size={18} className="mr-3 mt-1 text-miel-dark" />
-                <a href="mailto:contact@harmoniemassage.fr" className="text-ivoire/80 hover:text-taupe-dark transition-colors">
-                  contact@harmoniemassage.fr
+                <a href="mailto:massage.nermine@gmail.com" className="text-taupe/80 hover:text-taupe-dark transition-colors">
+                  massage.nermine@gmail.com
                 </a>
               </li>
             </ul>
@@ -69,7 +71,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-rose-light pt-8 mt-8 text-center text-ivoire/60 text-sm">
-          <p>&copy; {currentYear} HarmonieMassage. Tous droits réservés.</p>
+          <p>&copy; {currentYear} NERMINE. Tous droits réservés.</p>
           <div className="mt-2 flex justify-center space-x-6">
             <a href="#" className="hover:text-miel-dark transition-colors">Mentions légales</a>
             <a href="#" className="hover:text-miel-dark transition-colors">Politique de confidentialité</a>
