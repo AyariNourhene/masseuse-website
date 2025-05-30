@@ -20,7 +20,7 @@ export default {
     dark: '#E6B649',
   },
   ivoire: {
-    light: '#FFFEFC',
+    light: '#f9f9f6',
     DEFAULT: '#FFF8ED',  // 🕊️ Ivoire lumineux (fond)
     dark: '#F5EBD8',
   },

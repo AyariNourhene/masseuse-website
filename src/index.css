@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply bg-ivoire font-sans;
+    @apply bg-ivoire-light font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -67,7 +67,7 @@
   }
 
   .card {
-    @apply bg-ivoire rounded-2xl shadow-md p-6 transition-all duration-300 hover:shadow-lg;
+    @apply bg-ivoire-dark rounded-2xl shadow-md p-6 transition-all duration-300 hover:shadow-lg;
   }
 
   .animate-float {

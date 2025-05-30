@@ -14,7 +14,7 @@ const Footer = () => {
             alt="Nermine Logo" 
             className={`h-16 transition-transform duration-300 `}
           />
-            <p className="mb-6 text-taupe-light/80">
+            <p className="mb-6 text-taupe-dark/80">
               Services professionnels de massage à domicile, pour votre bien-être et votre confort.
             </p>
             <div className="flex space-x-4">
@@ -42,7 +42,7 @@ const Footer = () => {
                 <li key={item}>
                   <a 
                     href="#services" 
-                    className="text-taupe/80 hover:text-taupe-dark transition-colors"
+                    className="text-taupe-dark/80 hover:text-taupe-dark transition-colors"
                   >
                     {item}
                   </a>
@@ -56,13 +56,13 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Phone size={18} className="mr-3 mt-1 text-miel-dark" />
-                <a href="tel:+33712345678" className="text-taupe/80 hover:text-taupe-dark transition-colors">
+                <a href="tel:+33712345678" className="text-taupe-dark/80 hover:text-taupe-dark transition-colors">
                   +216 58 853 740
                 </a>
               </li>
               <li className="flex items-start">
                 <Mail size={18} className="mr-3 mt-1 text-miel-dark" />
-                <a href="mailto:massage.nermine@gmail.com" className="text-taupe/80 hover:text-taupe-dark transition-colors">
+                <a href="mailto:massage.nermine@gmail.com" className="text-taupe-dark/80 hover:text-taupe-dark transition-colors">
                   massage.nermine@gmail.com
                 </a>
               </li>
@@ -70,7 +70,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-rose-light pt-8 mt-8 text-center text-ivoire/60 text-sm">
+        <div className="border-t border-rose-light pt-8 mt-8 text-center text-taupe/60 text-sm">
           <p>&copy; {currentYear} NERMINE. Tous droits réservés.</p>
           <div className="mt-2 flex justify-center space-x-6">
             <a href="#" className="hover:text-miel-dark transition-colors">Mentions légales</a>
