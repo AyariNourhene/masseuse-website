@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '/src/image/logo_nermine.png'; // Adjust the path as necessary
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,7 +31,7 @@ const Header = () => {
       <div className="container-custom flex justify-between items-center">
         <a href="/" className="flex items-center">
           <img 
-            src="src/image/logo_nermine.png" 
+            src={logo}
             alt="Nermine Logo" 
             className={`h-16 transition-transform duration-300 `}
           />
