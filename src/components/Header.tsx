@@ -38,7 +38,7 @@ const Header = () => {
         </a>
 
         <div className="hidden md:flex items-center gap-4">
-          <div className="flex items-center text-sm px-4">
+          <div className="flex items-center text-sm px-5 font-bold">
             <MapPin size={16} className="mr-2 text-rose" />
             <span>Service à domicile</span>
           </div>
