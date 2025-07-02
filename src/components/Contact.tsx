@@ -353,9 +353,10 @@ const isSunday = (dateString : string) => {
                         required
                       >
                         <option value="" disabled>Sélectionnez un service</option>
-                        <option value="suedois">Massage Suédois</option>
-                        <option value="californien">Massage Californien</option>
-                        <option value="pierres">Massage aux Pierres Chaudes</option>
+                        <option value="relaxant">Massage relaxant</option>
+                        <option value="amincissant">Massage amincissant</option>
+                        <option value="soins">Soins visage personnalisés</option>
+                        <option value="imotion">I motion</option>
                       </select>
                     </div>
                   </div>
