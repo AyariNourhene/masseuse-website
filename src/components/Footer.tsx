@@ -1,6 +1,6 @@
 import React from 'react';
 import { Phone, Mail, Instagram, Facebook } from 'lucide-react';
-
+import logo from '/src/image/logo_nermine.png';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div>
                <img 
-            src="src/image/logo_nermine.png" 
+            src={logo} 
             alt="Nermine Logo" 
             className={`h-16 transition-transform duration-300 `}
           />
@@ -38,7 +38,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-bold mb-6 text-miel-dark">Services</h4>
             <ul className="space-y-3">
-              {['Massage Suédois', 'Massage Californien', 'Massage aux Pierres Chaudes', 'Forfaits', 'Cartes Cadeaux'].map((item) => (
+              {['Massage relaxant', 'Massage amincissant', 'Soins visages personnalisées', 'I motion'].map((item) => (
                 <li key={item}>
                   <a 
                     href="#services" 
@@ -56,7 +56,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Phone size={18} className="mr-3 mt-1 text-miel-dark" />
-                <a href="tel:+33712345678" className="text-taupe-dark/80 hover:text-taupe-dark transition-colors">
+                <a href="tel:+21658853740" className="text-taupe-dark/80 hover:text-taupe-dark transition-colors">
                   +216 58 853 740
                 </a>
               </li>

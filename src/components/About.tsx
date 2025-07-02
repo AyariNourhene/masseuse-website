@@ -58,7 +58,7 @@ const About = () => {
           >
             <h2 className="section-title mb-6">À propos de moi</h2>
             <p className="text-taupe-dark mb-6">
-              Je suis Ayari Nermine, praticienne en massages bien-être et soins esthétiques, âgée de 21 ans. Passionnée par l’art de prendre soin de la peau et de sublimer la beauté naturelle, je mets tout mon savoir-faire au service de votre bien-être, directement chez vous.
+              Je suis Ayari Nermine, praticienne en massages bien-être et soins esthétiques. Passionnée par l’art de prendre soin de la peau et de sublimer la beauté naturelle, je mets tout mon savoir-faire au service de votre bien-être, directement chez vous.
               Grâce à mon expérience en centres spécialisés, j’ai développé une large palette de techniques : massage relaxant, drainage lymphatique, maderothérapie, soins du visage, et bien plus. Mais au-delà des gestes, je crois profondément en l’écoute, la bienveillance et l’attention aux besoins de chacun.
               <br></br><b>Mon objectif ?</b>
               <br></br> Vous offrir un moment de sérénité, personnalisé et sans contrainte, dans le confort de votre domicile. Un espace rien qu’à vous, pour vous détendre, vous ressourcer et vous reconnecter à votre corps.
